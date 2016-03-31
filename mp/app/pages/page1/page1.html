@@ -1,0 +1,23 @@
+<div ng-app="morpion" ng-controller="Game">
+    <p>Choisi:
+        <label>
+            <input type="radio" value="O" ng-model="player" /><strong>O</strong>
+        </label>
+        <label>
+            <input type="radio" value="X" ng-model="player" value="Clear Board" /><strong>X</strong>
+        </label>
+    </p>
+    <div ng-show="$ynchronized">
+     <h2 ng-show="currentPlayer == player"> A ton tour </h2>
+
+     <h2 ng-show="currentPlayer != player">A l'adversaire</h2>
+
+     <h2 ng-show="winner">Vainqueur {{winner}}!! <input type="button" ng-click="newGame()" value="New Game" /></h2>
+
+    <table border="1">
+        <tr ng-repeat="row in [0,1,2]">
+            <td ng-repeat="column in [0,1,2]" ng-click="cellClick(row,column)" ng-class="cellClass(row,column)">{{cellText(row,column)}}</td>
+        </tr>
+    </table>
+    </div>
+</div>
